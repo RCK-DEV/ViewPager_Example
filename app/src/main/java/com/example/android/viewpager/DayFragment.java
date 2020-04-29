@@ -30,6 +30,9 @@ public class DayFragment extends Fragment {
 
     private String mDay;
 
+    public DayFragment() {
+    }
+
     public DayFragment(String day){
         mDay = day;
     }
