@@ -20,14 +20,26 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
- * Fragment that displays "Tuesday".
+ * Fragment that displays "Monday".
  */
-public class TuesdayFragment extends Fragment {
+public class DayFragment extends Fragment {
+
+    private String mDay;
+
+    public DayFragment(String day){
+        mDay = day;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_tuesday, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_day, container, false);
+        TextView dayTextView = rootView.findViewById(R.id.day_text);
+        dayTextView.setText(mDay);
+
+        return rootView;
     }
 }

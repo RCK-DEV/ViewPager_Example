@@ -15,6 +15,8 @@
  */
 package com.example.android.viewpager;
 
+import android.content.Context;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -24,22 +26,25 @@ import androidx.fragment.app.FragmentPagerAdapter;
  */
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    public SimpleFragmentPagerAdapter(FragmentManager fm) {
+    private Context mContext;
+    
+    public SimpleFragmentPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
+        mContext = context;
     }
 
     @Override
     public Fragment getItem(int position) {
         if (position == 0) {
-            return new MondayFragment();
+            return new DayFragment(mContext.getString(R.string.monday));
         } else if (position == 1){
-            return new TuesdayFragment();
+            return new DayFragment(mContext.getString(R.string.tuesday));
         } else if (position == 2) {
-            return new WednesdayFragment();
+            return new DayFragment(mContext.getString(R.string.wednesday));
         } else if (position == 3) {
-            return new ThursdayFragment();
+            return new DayFragment(mContext.getString(R.string.thursday));
         } else {
-            return new FridayFragment();
+            return new DayFragment(mContext.getString(R.string.friday));
         }
     }
 
